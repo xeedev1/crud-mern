@@ -14,3 +14,14 @@
 backend
 // initialize node js application 
         // npm init -y  
+
+        app.get('/books', (req,res)=>{
+            const q = 'SELECT * FROM books';
+            db.query(q, (err, data)=>{
+                if(err){
+                    return res.json(err)
+                }else {
+                    return res.json(data);
+                }
+            })
+        });
